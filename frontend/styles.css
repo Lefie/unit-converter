@@ -1,0 +1,24 @@
+
+* {
+    font-size: 1.1em;
+    color:rgb(0, 0, 0);
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    gap:100px;
+}
+
+.labels{
+    display: flex;
+    gap:100px;
+}
+
+.form{
+   border: 2px solid black;
+   width:500px;
+   height:auto;
+   padding:100px;
+}
+
