@@ -26,12 +26,30 @@ length_form.addEventListener('submit', function (event){
     .then(data => {
         console.log(length,from_unit, to_unit)
         const length_result_ele = document.createElement("p")
+        length_result_ele.setAttribute("id","result")
         length_result_ele.innerHTML = `The result of your calculation <br>
          ${length} ${from_unit} = ${data.result} ${to_unit} `
         forms.replaceChild(length_result_ele, length_form)
+        // create a button
+        const btn = document.createElement("BUTTON")
+        btn.setAttribute("id","reset")
+        btn.innerHTML = "Reset"
+        btn.addEventListener("click", function (event) {
+            event.preventDefault()
+            forms.removeChild(btn)
+            forms.replaceChild(length_form,length_result_ele)
+        })
+        forms.appendChild(btn)
     } )
-    .catch(error => console.log(error))
-    
+    .catch(error => {
+        const error_obj = document.createElement("p")
+        error_obj.innerHTML = error
+        forms.appendChild(error_obj)
+    })
 })
+
+
+
+
   
 
