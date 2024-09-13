@@ -7,14 +7,31 @@ const port = 8080
 
 
 // other functions 
-const conversion = (value,from, to) => {
-    if (from === "millimeter"){
-        if (to === "centimeter"){
-            converted_value = value / 10
-            console.log(from," millimeter is", converted_value, "centimeter")
-            return converted_value
-        }
-    }
+const conversion_length = (value, from, to) => {
+    
+   const conversionFactors = {
+    millimeter: 0.001,
+    centimeter: 0.01,
+    meter: 1,
+    kilometer: 1000,
+    inch: 0.0254,
+    foot: 0.3048,
+    yard: 0.9144,
+    mile: 1609.344
+   }
+
+   if ((!from in conversionFactors) || !( to in conversionFactors)){
+        throw new Error("invalid unit");
+   }
+
+   // convert the value to meters
+   let valueInMeters = value * conversionFactors[from]
+
+   //convertedValue
+   let convertedValue = valueInMeters / conversionFactors[to]
+
+   return Math.round(convertedValue * 10000) / 10000
+
 }
 
 app.use(bodyParser.urlencoded({extended:true}))
@@ -39,7 +56,8 @@ app.post("/length", function(req,res) {
     if( from_value === to_value){
         res.json({"result":length})
     }else{
-        converted_value = conversion(length,from_value,to_value)
+        converted_value = conversion_length(length,from_value,to_value)
+        console.log("converted value is",converted_value)
         res.json({"result":converted_value})
     }
 })
