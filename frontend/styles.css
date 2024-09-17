@@ -2,23 +2,66 @@
 * {
     font-size: 1.1em;
     color:rgb(0, 0, 0);
+    
 }
 
 .container{
+    background-color: rgb(0, 0, 0);;
     display:flex;
     flex-direction: column;
-    gap:100px;
+    gap:60px;
+    margin-top:5%;
+    padding:5%;
+    
 }
+
+#title {
+    margin: auto;
+    font-size: 1.7em;
+    color:rgb(255, 255, 255);
+}
+
+#length-label,#weight-label,#temp-label {
+    color:rgb(255, 255, 255);
+}
+
+.selected {
+    background-color: rgb(73, 206, 247);
+    
+}
+
 
 .labels{
     display: flex;
     gap:100px;
+    cursor: pointer;
+    margin: auto;
 }
 
+
 .forms{
-   border: 2px solid black;
+   
    width:500px;
    height:auto;
    padding:100px;
+   margin:auto;
 }
+
+#length-form label, #length-form label strong,
+#weight-form label, #weight-form label strong,
+#temp-form label, #temp-form label strong{
+    color:white;
+}
+
+#result {
+    background-color:purple;
+    padding:3%;
+    color: pink;
+}
+
+
+
+
+
+
 

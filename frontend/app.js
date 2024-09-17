@@ -439,7 +439,7 @@ content : string
 
 const generate_node = (type, attributes, content) => {
     let node = document.createElement(type)
-    console.log("node")
+    
     for (let i = 0; i < attributes.length; i++){
         const key = Object.keys(attributes[i])[0]
         const value = attributes[i][key]
