@@ -35,11 +35,11 @@ weight_label.addEventListener("click", function (event) {
     
     forms.appendChild(form)
 
-
 })
 
 length_label.addEventListener("click", function (event) {
     event.preventDefault()
+
     if (weight_label.classList.contains("selected")){
         weight_label.classList.remove("selected")
     }
@@ -47,6 +47,7 @@ length_label.addEventListener("click", function (event) {
     if(temp_label.classList.contains("selected")) {
         temp_label.classList.remove("selected")
     }
+
     length_label.classList.add("selected")
     console.log("length")
 
@@ -106,7 +107,7 @@ const generate_form = (type) => {
         form.appendChild(line_break)
 
          // label 2
-        let label_node1 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>from</strong>")
+        let label_node1 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>from</strong><br>")
         form.appendChild(label_node1)
 
         // select node 
@@ -133,7 +134,7 @@ const generate_form = (type) => {
 
 
         //label 3
-        let label_node2 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>to</strong>")
+        let label_node2 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>to</strong><br>")
         form.appendChild(label_node2)
 
         // select node 
@@ -161,6 +162,7 @@ const generate_form = (type) => {
 
         // line break
         form.appendChild(line_break)
+        
 
         // convert button 
         let convert_btn = generate_node("input",[{"type":"submit"},{"value":"Convert"}])
@@ -199,8 +201,6 @@ const generate_form = (type) => {
                     forms.replaceChild(form,length_result)
                 })
                 forms.appendChild(btn)
-
-
             })
             .catch(error => {
                 const error_obj = document.createElement("p")
@@ -209,7 +209,8 @@ const generate_form = (type) => {
             })
 
         })
-
+        
+        form.appendChild(document.createElement("br"))
         form.appendChild(convert_btn)
 
     }
@@ -226,10 +227,10 @@ const generate_form = (type) => {
 
          // line break
          const line_break = document.createElement("br")
-         form.appendChild(line_break)
+        
 
         // label 2
-        let label_node1 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>from</strong>")
+        let label_node1 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>from</strong><br>")
         form.appendChild(label_node1)
 
         // select node 
@@ -250,7 +251,7 @@ const generate_form = (type) => {
         form.appendChild(select_node)
 
         //label 3
-        let label_node2 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>to</strong>")
+        let label_node2 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>to</strong><br>")
         form.appendChild(label_node2)
 
         // select node 
@@ -320,7 +321,9 @@ const generate_form = (type) => {
 
         })
 
-            form.appendChild(convert_btn)
+        form.appendChild(document.createElement("br"))
+
+        form.appendChild(convert_btn)
     }
 
     if (type === "temp") {
@@ -331,13 +334,9 @@ const generate_form = (type) => {
         // input bar
         let input_node = generate_node("input",[{"type":"number"},{"id":"temp"},{"name":"temp"}])
         form.appendChild(input_node)
-
-         // line break
-         const line_break = document.createElement("br")
-         form.appendChild(line_break)
-
+        
         // label 2
-        let label_node1 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>from</strong>")
+        let label_node1 = generate_node("label",[{"for":"from"}],"<br><br>Unit to Convert <strong>from</strong><br>")
         form.appendChild(label_node1)
 
         // select node 
@@ -355,7 +354,7 @@ const generate_form = (type) => {
         form.appendChild(select_node)
 
         //label 3
-        let label_node2 = generate_node("label",[{"for":"to"}],"<br><br>Unit to Convert <strong>to</strong>")
+        let label_node2 = generate_node("label",[{"for":"to"}],"<br><br>Unit to Convert <strong>to</strong><br>")
         form.appendChild(label_node2)
 
         // select node 
@@ -371,9 +370,6 @@ const generate_form = (type) => {
         select_node2.appendChild(option6)
 
         form.appendChild(select_node2)
-
-        // line break
-        form.appendChild(line_break)
 
         // convert button 
         let convert_btn = generate_node("input",[{"type":"submit"},{"value":"Convert"}])
@@ -422,7 +418,12 @@ const generate_form = (type) => {
             })
 
         })
-            form.appendChild(convert_btn)
+
+         // line break
+        form.appendChild(document.createElement("br"))
+        form.appendChild(document.createElement("br"))
+        
+        form.appendChild(convert_btn)
 
 
     }
