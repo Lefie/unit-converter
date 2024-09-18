@@ -2,7 +2,6 @@
 * {
     font-size: 1.1em;
     color:rgb(0, 0, 0);
-    
 }
 
 .container{
@@ -29,7 +28,6 @@
     background-color: rgb(73, 206, 247);
     
 }
-
 
 .labels{
     display: flex;
